@@ -1,0 +1,6 @@
+eclipse.preferences.version=1
+environment/project/cdt.managedbuild.config.gnu.cygwin.exe.debug.1870752861/PATH/delimiter=;
+environment/project/cdt.managedbuild.config.gnu.cygwin.exe.debug.1870752861/PATH/operation=replace
+environment/project/cdt.managedbuild.config.gnu.cygwin.exe.debug.1870752861/PATH/value=F\:\\MinGW\\bin;${MINGW_HOME}\\bin;${MSYS_HOME}\\bin;F\:/Program Files/Java/jre7/bin/client;F\:/Program Files/Java/jre7/bin;F\:/Program Files/Java/jre7/lib/i386;F\:\\WINDOWS\\system32;F\:\\WINDOWS;F\:\\WINDOWS\\system32\\wbem;F\:\\WINDOWS\\system32;F\:\\WINDOWS;F\:\\WINDOWS\\system32\\wbem;C\:\\Program Files\\QuickTime\\QTSystem\\;C\:\\Program Files\\Microchip\\MPLAB C32 Suite\\bin;C\:\\Program Files\\TortoiseSVN\\bin;F\:\\Program Files\\Eclipse\\eclipse
+environment/project/cdt.managedbuild.config.gnu.cygwin.exe.debug.1870752861/append=true
+environment/project/cdt.managedbuild.config.gnu.cygwin.exe.debug.1870752861/appendContributed=true
