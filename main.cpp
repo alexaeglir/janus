@@ -3,13 +3,13 @@
 #include <Gl/gl.h>
 
 #include "CRenderer.hpp"
-
+#include "COpenGlEx1.hpp"
 using namespace Aeglir::LowLevRender;
 
 const char g_szClassName[] = "OpenGlTestClass";
 
-static CRenderer& renderer = CRenderer::getInstance();
-
+COpenGlEx1 example1;
+static CRenderer &renderer = CRenderer::getInstance(example1);
 LRESULT CALLBACK WndProc(HWND hwnd,UINT msg,WPARAM wparam,LPARAM lparam)
 {
 
@@ -47,6 +47,7 @@ int WINAPI WinMain(HINSTANCE hInstance,HINSTANCE hPrevInstance,LPSTR lpCmdLine,
 	WNDCLASSEX wc = {0};
 	HWND hwnd;
 	MSG Msg = {0};
+
 
 
 	wc.cbSize        = sizeof(WNDCLASSEX);

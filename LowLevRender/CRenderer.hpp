@@ -15,22 +15,23 @@ extern "C"{
 #include "LoadShader.hpp"
 namespace Aeglir{
 namespace LowLevRender{
-
+	class IOpenGlRed;
 	class CRenderer{
 	private:
 		bool _isInit;
 		PIXELFORMATDESCRIPTOR _pfd;
 		HDC _deviceContext;
 		HGLRC _renderContext;
-		SShaderInfo _shaderInfo;
+		IOpenGlRed &_openGlExample;
+
 		//Constructor, destructor and copy and copy-assignement are defined private for singleton
-		CRenderer():_isInit(false),_deviceContext(NULL),_renderContext(NULL),_shaderInfo(){};
+		CRenderer(IOpenGlRed &example):_isInit(false),_deviceContext(NULL),_renderContext(NULL),_openGlExample(example)/*,_shaderInfo()*/{};
 		~CRenderer(){};
 		CRenderer(CRenderer const& renderer);
 		CRenderer& operator=(CRenderer const& renderer);
 	public:
 		//Singleton instance returned by getInstance
-		static CRenderer& getInstance();
+		static CRenderer& getInstance(IOpenGlRed &example);
 		/**
 		 * @brief initializes the renderer
 		 */

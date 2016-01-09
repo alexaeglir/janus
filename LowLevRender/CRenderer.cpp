@@ -7,22 +7,14 @@
  */
 #include "CRenderer.hpp"
 #include "Extensions.h"
+#include "IOpenGlRed.hpp"
 
-///variable part
-#define BUFFER_OFFSET(offset) ((void*)(offset))
-enum VAOIds {Triangles,NumVAOs};
-enum BufferIds {ArrayBuffer,NumBuffers};
-enum AttribIds {vPosition = 0};
-GLuint VAOs[NumVAOs];
-GLuint Buffers[NumBuffers];
-const GLuint numVertices = 6;
-/////
 namespace Aeglir{
 namespace LowLevRender{
 
-		CRenderer& CRenderer::getInstance()
+		CRenderer& CRenderer::getInstance(IOpenGlRed &example)
 		{
-			static CRenderer renderer;//initialized once first time function is called
+			static CRenderer renderer(example);//initialized once first time function is called
 			return renderer;//returns a reference to the singleton
 		}
 
@@ -55,27 +47,13 @@ namespace LowLevRender{
 			initExtensions();
 			//_shaderInfo.initShaderInfo();
 			MessageBoxA(0,(char*)glGetString(GL_VERSION),"OpenGl version",0);
-			////Variable init part
-			glGenVertexArrays(NumVAOs,VAOs);
-			glBindVertexArray(VAOs[Triangles]);
-			GLfloat vertices[numVertices][2] = {{-0.90,-0.90},{0.85,-0.90},{-0.90,0.85},{0.90,-0.85},{0.90,0.90},{-0.85,0.90}};
-			glGenBuffers(NumBuffers,Buffers);
-			glBindBuffer(GL_ARRAY_BUFFER,Buffers[ArrayBuffer]);
-			glBufferData(GL_ARRAY_BUFFER,sizeof(vertices),vertices,GL_STATIC_DRAW);
-			_shaderInfo.vShaderFile = "F:\\Documents and Settings\\Alex\\My Documents\\AndroidDev\\workspace\\JanusEngine\\LowLevRender\\triangles.vert";
-			_shaderInfo.fShaderFile = "F:\\Documents and Settings\\Alex\\My Documents\\AndroidDev\\workspace\\JanusEngine\\LowLevRender\\triangles.frag";
-			GLuint program =  _shaderInfo.LoadShader(_shaderInfo);
-			glUseProgram(program);
-			glVertexAttribPointer(vPosition,2,GL_FLOAT,GL_FALSE,0,BUFFER_OFFSET(0));
-			glEnableVertexAttribArray(vPosition);
+			_openGlExample.init();
+
 		}
 		void CRenderer::render(void)
 		{
-			glClear(GL_COLOR_BUFFER_BIT);
-			glBindVertexArray(VAOs[Triangles]);
-			glDrawArrays(GL_TRIANGLES,0,numVertices);
-			glFlush();
 
+			_openGlExample.draw();
 			SwapBuffers(_deviceContext);
 		}
 		void CRenderer::deinit(void)

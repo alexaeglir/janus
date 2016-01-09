@@ -27,6 +27,7 @@
 							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base.1736131391" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.base">
 								<option id="gnu.cpp.compiler.option.include.paths.2072341135" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;F:\MinGW\include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/LowLevRender/openGlred}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/LowLevRender}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;F:\MinGW\lib\gcc\mingw32\4.8.1\include\c++&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;F:\MinGW\lib\gcc\mingw32\4.8.1\include-fixed&quot;"/>
