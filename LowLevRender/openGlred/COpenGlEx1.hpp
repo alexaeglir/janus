@@ -5,9 +5,10 @@
  * @copyright Aeglir Soft
  * @date 01/09/2016
  */
-#include "IOpenGlRed.hpp"
+
 #ifndef __COPENGLEX1_HPP_
 #define __COPENGLEX1_HPP_
+#include "IOpenGlRed.hpp"
 namespace Aeglir{
 namespace LowLevRender{
 	class COpenGlEx1: public IOpenGlRed{

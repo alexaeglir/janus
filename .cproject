@@ -34,6 +34,7 @@
 									<listOptionValue builtIn="false" value="&quot;F:\MinGW\lib\gcc\mingw32\4.8.1\include\c++\backward&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;F:\MinGW\lib\gcc\mingw32\4.8.1\include\c++\mingw32&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;F:\MinGW\lib\gcc\mingw32\4.8.1\include&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;F:\MinGW\include\GL&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.optimization.level.1459006450" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
 								<option id="gnu.cpp.compiler.option.debugging.level.780102509" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>

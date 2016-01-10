@@ -23,7 +23,7 @@ namespace LowLevRender{
 		GLenum fTarget;
 		const char* fShaderFile;
 		SShaderInfo():vTarget(0),vShaderFile(NULL),fTarget(0),fShaderFile(NULL),_isinit(false){};
-		GLuint LoadShader(SShaderInfo &shaderInfo);
+		GLuint LoadShader();
 		const char* getShaderProgram(const char *filePath,string &shaderProgramText);
 		//void initShaderInfo(void);
 	private:

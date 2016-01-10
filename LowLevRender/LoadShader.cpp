@@ -8,63 +8,26 @@
 #include <windows.h>
 #include <Gl/glext.h>
 
-/*static PFNGLCREATESHADERPROC glCreateShader;
-static PFNGLSHADERSOURCEPROC glShaderSource;
-static PFNGLCOMPILESHADERPROC glCompileShader;
-static PFNGLGETSHADERINFOLOGPROC glGetShaderInfoLog;
-static PFNGLGETSHADERIVPROC glGetShaderiv;
-static PFNGLCREATEPROGRAMPROC glCreateProgram;
-static PFNGLGETPROGRAMIVPROC glGetProgramiv;
-static PFNGLLINKPROGRAMPROC glLinkProgram;
-static PFNGLATTACHSHADERPROC glAttachShader;*/
+
 
 namespace Aeglir{
 namespace LowLevRender{
 
 
-	/*void SShaderInfo::initShaderInfo(void)
-	{
-		glCreateShader = (PFNGLCREATESHADERPROC)wglGetProcAddress("glCreateShader");
-		if(!glCreateShader)
-			return;
-		glShaderSource = (PFNGLSHADERSOURCEPROC)wglGetProcAddress("glShaderSource");
-		if(!glShaderSource)
-			return;
-		glCompileShader = (PFNGLCOMPILESHADERPROC)wglGetProcAddress("glCompileShader");
-		if(!glCompileShader)
-			return;
-		glGetShaderInfoLog = (PFNGLGETSHADERINFOLOGPROC)wglGetProcAddress("glGetShaderInfoLog");
-		if(!glGetShaderInfoLog)
-			return;
-		glGetShaderiv = (PFNGLGETSHADERIVPROC)wglGetProcAddress("glGetShaderiv");
-		if(!glGetShaderiv)
-			return;
-		glCreateProgram = (PFNGLCREATEPROGRAMPROC)wglGetProcAddress("glCreateProgram");
-		if(!glCreateProgram)
-			return;
-		glGetProgramiv = (PFNGLGETPROGRAMIVPROC)wglGetProcAddress("glGetProgramiv");
-		if(!glGetProgramiv)
-			return;
-		glLinkProgram = (PFNGLLINKPROGRAMPROC)wglGetProcAddress("glLinkProgram");
-		if(!glLinkProgram)
-			return;
-		glAttachShader = (PFNGLATTACHSHADERPROC)wglGetProcAddress("glAttachShader");
-		if(!glAttachShader)
-			return;
-		_isinit = true;
-	}*/
-	GLuint SShaderInfo::LoadShader(SShaderInfo &shaderInfo)
+
+	GLuint SShaderInfo::LoadShader(void)
 	{
 		GLuint program;
 		GLuint vertexShader;
 		GLuint fragmentShader;
+
 
 		vertexShader   = glCreateShader( GL_VERTEX_SHADER);	// create a vertex shader object
 		fragmentShader = glCreateShader( GL_FRAGMENT_SHADER );	// create a fragment shader object
 
 		// load and compile vertex shader
 		string shaderProgramText;
-		const char* text = getShaderProgram( shaderInfo.vShaderFile, shaderProgramText );
+		const char* text = getShaderProgram(vShaderFile, shaderProgramText );
 		GLint length = shaderProgramText.size();
 
 		glShaderSource( vertexShader, 1,&text, NULL );
@@ -90,7 +53,7 @@ namespace LowLevRender{
 
 		// load and compile fragment shader
 		shaderProgramText = "";
-		text = getShaderProgram( shaderInfo.fShaderFile, shaderProgramText );
+		text = getShaderProgram(fShaderFile, shaderProgramText );
 		glShaderSource( fragmentShader, 1, &text, NULL );
 		glCompileShader( fragmentShader );
 
@@ -102,9 +65,10 @@ namespace LowLevRender{
 		infoLog = new char[100];
 		bufSize = 0;
 		glGetShaderInfoLog( fragmentShader, bufSize, NULL, infoLog );
-		for ( int i = 0; i < bufSize; i++ )
+		//printf("info log: %s\n",infoLog);
+		/*for ( int i = 0; i < bufSize; i++ )
 			cout << infoLog[ i ] << endl;
-		delete [] infoLog;
+		delete [] infoLog;*/
 
 		// create the shader program
 		program = glCreateProgram();
@@ -117,6 +81,11 @@ namespace LowLevRender{
 		glLinkProgram( program );
 
 		glGetProgramiv( program, GL_LINK_STATUS, &status );
+		glGetProgramInfoLog( program, bufSize, NULL, infoLog );
+		printf("info log: %s\n",infoLog);
+		for ( int i = 0; i < bufSize; i++ )
+			cout << infoLog[ i ] << endl;
+		delete [] infoLog;
 		if ( !( status == GL_TRUE ) )
 			cout << "Link failed..." << endl;
 

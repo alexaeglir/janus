@@ -8,7 +8,7 @@
 #ifndef __IOPENGL_RED_HPP_
 #define __IOPENGL_RED_HPP_
 #include "LoadShader.hpp"
-using namespace Aeglir::LowLevRender;
+
 
 namespace Aeglir{
 namespace LowLevRender{

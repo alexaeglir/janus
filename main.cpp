@@ -4,12 +4,14 @@
 
 #include "CRenderer.hpp"
 #include "COpenGlEx1.hpp"
+#include "COpenGlEx2.hpp"
 using namespace Aeglir::LowLevRender;
 
 const char g_szClassName[] = "OpenGlTestClass";
 
 COpenGlEx1 example1;
-static CRenderer &renderer = CRenderer::getInstance(example1);
+COpenGlEx2 example2;
+static CRenderer &renderer = CRenderer::getInstance(example2);
 LRESULT CALLBACK WndProc(HWND hwnd,UINT msg,WPARAM wparam,LPARAM lparam)
 {
 

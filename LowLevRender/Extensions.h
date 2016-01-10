@@ -21,6 +21,7 @@ extern PFNGLGETSHADERIVPROC glGetShaderiv;
 extern PFNGLCREATEPROGRAMPROC glCreateProgram;
 extern PFNGLGETPROGRAMIVPROC glGetProgramiv;
 extern PFNGLLINKPROGRAMPROC glLinkProgram;
+extern PFNGLGETPROGRAMINFOLOGPROC glGetProgramInfoLog;
 extern PFNGLATTACHSHADERPROC glAttachShader;
 extern PFNGLGENVERTEXARRAYSPROC glGenVertexArrays;
 extern PFNGLBINDVERTEXARRAYPROC glBindVertexArray;
@@ -30,7 +31,11 @@ extern PFNGLBUFFERDATAPROC glBufferData;
 extern PFNGLUSEPROGRAMPROC glUseProgram;
 extern PFNGLVERTEXATTRIBPOINTERPROC glVertexAttribPointer;
 extern PFNGLENABLEVERTEXATTRIBARRAYPROC glEnableVertexAttribArray;
-
+extern PFNGLGETUNIFORMBLOCKINDEXPROC glGetUniformBlockIndex;
+extern PFNGLGETACTIVEUNIFORMBLOCKIVPROC glGetActiveUniformBlockiv;
+extern PFNGLGETUNIFORMINDICESPROC glGetUniformIndices;
+extern PFNGLGETACTIVEUNIFORMSIVPROC glGetActiveUniformsiv;
+extern PFNGLBINDBUFFERBASEPROC glBindBufferBase;
 void initExtensions(void);
 #ifdef __cplusplus
 }

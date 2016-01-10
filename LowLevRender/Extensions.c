@@ -16,6 +16,7 @@ PFNGLGETSHADERIVPROC glGetShaderiv;
 PFNGLCREATEPROGRAMPROC glCreateProgram;
 PFNGLGETPROGRAMIVPROC glGetProgramiv;
 PFNGLLINKPROGRAMPROC glLinkProgram;
+PFNGLGETPROGRAMINFOLOGPROC glGetProgramInfoLog;
 PFNGLATTACHSHADERPROC glAttachShader;
 
 PFNGLGENVERTEXARRAYSPROC glGenVertexArrays;
@@ -27,8 +28,30 @@ PFNGLUSEPROGRAMPROC glUseProgram;
 PFNGLVERTEXATTRIBPOINTERPROC glVertexAttribPointer;
 PFNGLENABLEVERTEXATTRIBARRAYPROC glEnableVertexAttribArray;
 
+PFNGLGETUNIFORMBLOCKINDEXPROC glGetUniformBlockIndex;
+PFNGLGETACTIVEUNIFORMBLOCKIVPROC glGetActiveUniformBlockiv;
+PFNGLGETUNIFORMINDICESPROC glGetUniformIndices;
+PFNGLGETACTIVEUNIFORMSIVPROC glGetActiveUniformsiv;
+PFNGLBINDBUFFERBASEPROC glBindBufferBase;
+
 void initExtensions(void)
 {
+	glGetUniformBlockIndex = (PFNGLGETUNIFORMBLOCKINDEXPROC)wglGetProcAddress("glGetUniformBlockIndex");
+	if(!glGetUniformBlockIndex)
+		return;
+	glGetActiveUniformBlockiv = (PFNGLGETACTIVEUNIFORMBLOCKIVPROC)wglGetProcAddress("glGetActiveUniformBlockiv");
+	if(!glGetActiveUniformBlockiv)
+		return;
+	glGetUniformIndices = (PFNGLGETUNIFORMINDICESPROC)wglGetProcAddress("glGetUniformIndices");
+	if(!glGetUniformIndices)
+		return;
+	glGetActiveUniformsiv = (PFNGLGETACTIVEUNIFORMSIVPROC)wglGetProcAddress("glGetActiveUniformsiv");
+	if(!glGetActiveUniformsiv)
+		return;
+	glBindBufferBase = (PFNGLBINDBUFFERBASEPROC)wglGetProcAddress("glBindBufferBase");
+	if(!glBindBufferBase)
+		return;
+
 	glCreateShader = (PFNGLCREATESHADERPROC)wglGetProcAddress("glCreateShader");
 	if(!glCreateShader)
 		return;
@@ -53,6 +76,9 @@ void initExtensions(void)
 	glLinkProgram = (PFNGLLINKPROGRAMPROC)wglGetProcAddress("glLinkProgram");
 	if(!glLinkProgram)
 		return;
+	glGetProgramInfoLog = (PFNGLGETPROGRAMINFOLOGPROC)wglGetProcAddress("glGetProgramInfoLog");
+	if(!glGetProgramInfoLog)
+			return;
 	glAttachShader = (PFNGLATTACHSHADERPROC)wglGetProcAddress("glAttachShader");
 	if(!glAttachShader)
 		return;
