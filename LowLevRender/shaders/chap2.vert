@@ -11,6 +11,7 @@ out vec4 fColor;
 void main()
 {
 	vec3 pos = vec3(vPos,0.0);
+	vec3 temp;
 	float angle = radians(rotation[0]);
 	vec3 axis = normalize(rotation.yzw);
 	mat3 I = mat3(1.0);
@@ -20,11 +21,13 @@ void main()
 	mat3 uuT = outerProduct(axis,axis);
 	mat3 rot = uuT + cos(angle)*(I-uuT) + sin(angle)*S;
 	pos *= scale;
-	pos *= rot;
-	pos += translation;
+	angle = 10;
+	temp.x = vPos.x*cos(angle) + vPos.y*sin(angle);
+	temp.y = vPos.x*sin(angle) - vPos.y*cos(angle);
+	pos.x = temp.x;
+	pos.y = temp.y;
+
 	fColor = vec4(scale,scale,scale,1);
-	pos = vec3(vPos,0.0);
-	pos *= scale;
-	pos *= rot;
+
 	gl_Position = vec4(pos,1);
 }

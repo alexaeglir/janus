@@ -85,7 +85,7 @@ namespace LowLevRender{
 			enum{Translation, Rotation, Scale, Enabled, numUniforms};
 			GLfloat scale = 0.5;
 			GLfloat translation[] = {0.1,0.2,0.0};
-			GLfloat rotation[] = {90.0,0.0,0.0,1.0};
+			GLfloat rotation[] = {45.0,0.0,0.0,1.0};
 			GLboolean enabled = GL_TRUE;
 			//names of the uniforms
 			const char *uniformNames[numUniforms] = { "translation","rotation","scale","enabled"};
